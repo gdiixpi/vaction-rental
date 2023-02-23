@@ -1,0 +1,94 @@
+<div class="card shadow-sm">
+  <div class="card-body">
+    <!-- <h4 class="mb-3">Book this property</h4> -->
+    <div class="d-flex justify-content-between mb-3">
+      <div class="align-self-center">
+        <h4 class="mb-0 fw-bold">$201 <span class="font16 fw-normal">night</span></h4>
+      </div>
+      <div class="property-rating-review align-self-center">
+        <div class="mb-1">
+          <span class="star-rating">
+            <i class="star-rating-icon fi-star-filled active"></i>
+            <i class="star-rating-icon fi-star-filled active"></i>
+            <i class="star-rating-icon fi-star-filled active"></i>
+            <i class="star-rating-icon fi-star-filled active"></i>
+            <i class="star-rating-icon fi-star-filled active"></i>
+          </span>
+          <span class="ms-1 fs-sm text-muted">(45 reviews)</span>
+        </div>
+      </div>
+    </div>
+    <form [formGroup]="getbookdata" (ngSubmit)="validSubmit()">
+      <div class="mb-3">
+        <label for="arrival-date" class="text-black fw-normal mb-1">Check-in & checkout date:</label>
+        <input class="form-control date-picker rounded pe-5 flatpickr-input" type="date" mwlFlatpickr
+          [ngClass]="{'is-invalid': submit && form['startDate'].errors}" [mode]="'range'" [dateFormat]="'Y-m-d'"
+          formControlName="startDate" (flatpickrClose)="onClose()" (flatpickrOpen)="onOpen()" placeholder="Choose date"
+          (change)="handleSDate($event)">
+        <div class="invalid-feedback">Please choose date.</div>
+      </div>
+      <div class="mb-3">
+        <label for="noOfGuest" class="fw-normal mb-1">Guests:</label>
+        <select class="form-select" formControlName="noOfGuest" id="noOfGuest"
+          [ngClass]="{'is-invalid': submit && form['noOfGuest'].errors}">
+          <option value="">Select</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+        <div class="invalid-feedback">Please select no of guest.</div>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary w-100">Reserve</button>
+      </div>
+
+      <div class="py-3 border-bottom">
+        <p class="text-center text-body mb-0">You won't be charged yet</p>
+      </div>
+      <div class="py-3 border-bottom">
+        <div class="d-flex mb-2 justify-content-between">
+          <div class="dates-guests">
+            <p class="noto-sans mb-0 fw-normal">$343.69 x 11 nights</p>
+          </div>
+          <div class="edit-dates text-end align-self-center">
+            <p class="noto-sans mb-0 fw-normal">$3,780.57</p>
+          </div>
+        </div>
+        <div class="d-flex mb-2 justify-content-between">
+          <div class="dates-guests">
+            <p class="noto-sans mb-0 fw-normal">Cleaning fee</p>
+          </div>
+          <div class="edit-dates text-end align-self-center">
+            <p class="noto-sans mb-0 fw-normal">$80.32</p>
+          </div>
+        </div>
+        <div class="d-flex mb-0 justify-content-between">
+          <div class="dates-guests">
+            <p class="noto-sans mb-0 fw-normal">Taxes</p>
+          </div>
+          <div class="edit-dates text-end align-self-center">
+            <p class="noto-sans mb-0 fw-normal">$59.9</p>
+          </div>
+        </div>
+      </div>
+      <div class="pt-3">
+        <div class="d-flex mb-0 justify-content-between">
+          <div class="dates-guests">
+            <p class="noto-sans mb-0 fw-bold">Total (USD)</p>
+          </div>
+          <div class="edit-dates text-end align-self-center">
+            <p class="noto-sans mb-0 fw-bold">$3,920.79</p>
+          </div>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>
