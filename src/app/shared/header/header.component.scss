@@ -1,0 +1,3 @@
+.navbar-expand-lg .navbar-nav .dropdown-toggle.no-sub-items::after { // Removes arrow on menus items with no sub items
+  display: none;
+}
